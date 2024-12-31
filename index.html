@@ -165,10 +165,8 @@
         window.addEventListener('load', () => {
             setTimeout(() => {
                 const audio = document.getElementById('background-audio');
-                audio.play().catch(error => {
-                    console.log('Prohlížeč zabránil přehrávání:', error);
-                });
                 audio.volume = 0.2;
+                audio.muted = false;
                 const fadeOverlay = document.getElementById('fade-inout');
                 fadeOverlay.style.opacity = '0';
                 setTimeout(() => {

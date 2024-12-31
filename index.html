@@ -135,7 +135,6 @@
     <div class="overlay"></div>
 
     <script>
-        document.getElementById("background-audio").volume = 0.2;
         var countdown = "";
         const countdownText = document.getElementById("countdown");
         function timeUntil() {
@@ -165,6 +164,11 @@
 
         window.addEventListener('load', () => {
             setTimeout(() => {
+                const audio = document.getElementById('background-audio');
+                audio.play().catch(error => {
+                    console.log('Prohlížeč zabránil přehrávání:', error);
+                });
+                audio.volume = 0.2;
                 const fadeOverlay = document.getElementById('fade-inout');
                 fadeOverlay.style.opacity = '0';
                 setTimeout(() => {

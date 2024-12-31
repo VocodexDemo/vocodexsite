@@ -10,7 +10,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>--</title>
-    <link rel="icon" href="icons/countdown.ico" type="image/x-icon">
+    <link rel="icon" href="icons/countdown.ico?v=2" type="image/x-icon">
     <style>
         body, html{
             margin: 0;
@@ -18,9 +18,9 @@
             overflow: hidden;
             user-select: none;
             -webkit-user-select: none;
-            font-family:'Lucida Sans';
         }
         p{
+            font-family:'Lucida Sans';
             position: absolute;
             text-align: center;
             bottom: 5px;
@@ -42,7 +42,7 @@
             filter: sepia(50%) saturate(90%) brightness(70%) contrast(110%);
             transition: 0.3s steps(4), filter 0.3s ease;
         }
-        #p1:hover{
+        #p1.clicked1{
             top: 50%;
             left: calc(50% - (min(75vh, 90vw) / 2));
             width: min(75vh, 90vw);
@@ -61,7 +61,7 @@
             filter: sepia(50%) saturate(90%) brightness(52%) contrast(110%);
             transition: 0.3s steps(4), filter 0.3s ease;
         }
-        #p2:hover{
+        #p2.clicked2{
             top: 50%;
             left: calc(50% - (min(65vh, 90vw) / 2));
             width: min(65vh, 90vw);
@@ -80,7 +80,7 @@
             filter: sepia(50%) saturate(90%) brightness(50%) contrast(110%);
             transition: 0.3s steps(4), filter 0.3s ease;
         }
-        #p3:hover{
+        #p3.clicked3{
             top: 50%;
             left: calc(50% - (min(65vh, 90vw) / 2));
             width: min(65vh, 90vw);
@@ -108,6 +108,7 @@
             margin: 20px 30px;
             color: #fff;
             font-size: 18px;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
         }
         @media (max-width: 640px) {
             p{
@@ -128,8 +129,8 @@
     </style>
 </head>
 <body>
-    <div id="fade-inout"><h2>NAČÍTÁNÍ...</h2></div>
-    <audio id="background-audio" src="sounds/street.ogg" autoplay loop></audio>
+    <div id="fade-inout"><h2 id="introText">NAČÍTÁNÍ...</h2></div>
+    <audio id="background-audio" src="sounds/street.ogg" loop></audio>
     <div class="container">
         <img id="bgimg" src="" class="responsive-image" alt="img" draggable="false">
         <img id="p2" src="img/teaser2.webp" alt="paper" draggable="false">
@@ -164,17 +165,26 @@
 
         const paperAudio = new Audio("sounds/letter.ogg");
         paperAudio.volume = 0.6;
-        document.getElementById("p1").addEventListener('mouseenter', () => { paperAudio.currentTime = 0; paperAudio.play(); });
-        document.getElementById("p2").addEventListener('mouseenter', () => { paperAudio.currentTime = 0; paperAudio.play(); });
-        document.getElementById("p3").addEventListener('mouseenter', () => { paperAudio.currentTime = 0; paperAudio.play(); });
+        document.getElementById("p1").addEventListener('click', function() { paperAudio.currentTime = 0; paperAudio.play(); this.classList.toggle("clicked1"); });
+        document.getElementById("p2").addEventListener('click', function() { paperAudio.currentTime = 0; paperAudio.play(); this.classList.toggle("clicked2"); });
+        document.getElementById("p3").addEventListener('click', function() { paperAudio.currentTime = 0; paperAudio.play(); this.classList.toggle("clicked3"); });
+
+        let loaded = false;
+        function loadWeb(){
+            if (loaded) return;
+            const fadeOverlay = document.getElementById('fade-inout');
+            fadeOverlay.style.opacity = '0';
+            setTimeout(() => {
+                fadeOverlay.style.pointerEvents = 'none';
+            }, 1000);
+            document.getElementById("background-audio").play();
+            loaded = true;
+        }
 
         window.addEventListener('load', () => {
             setTimeout(() => {
-                const fadeOverlay = document.getElementById('fade-inout');
-                fadeOverlay.style.opacity = '0';
-                setTimeout(() => {
-                    fadeOverlay.style.pointerEvents = 'none';
-                }, 1000);
+                document.getElementById('introText').innerHTML = "KLIKNĚTE PRO POKRAČOVÁNÍ!";
+                document.addEventListener("click", () => { loadWeb() });
             }, 1000);
         });
     </script>

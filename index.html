@@ -42,7 +42,7 @@
             filter: sepia(50%) saturate(90%) brightness(70%) contrast(110%);
             transition: 0.3s steps(4), filter 0.3s ease;
         }
-        #p1.clicked1{
+        #p1:hover{
             top: 50%;
             left: calc(50% - (min(75vh, 90vw) / 2));
             width: min(75vh, 90vw);
@@ -61,7 +61,7 @@
             filter: sepia(50%) saturate(90%) brightness(52%) contrast(110%);
             transition: 0.3s steps(4), filter 0.3s ease;
         }
-        #p2.clicked2{
+        #p2:hover{
             top: 50%;
             left: calc(50% - (min(65vh, 90vw) / 2));
             width: min(65vh, 90vw);
@@ -80,7 +80,7 @@
             filter: sepia(50%) saturate(90%) brightness(50%) contrast(110%);
             transition: 0.3s steps(4), filter 0.3s ease;
         }
-        #p3.clicked3{
+        #p3:hover{
             top: 50%;
             left: calc(50% - (min(65vh, 90vw) / 2));
             width: min(65vh, 90vw);
@@ -165,13 +165,14 @@
 
         const paperAudio = new Audio("sounds/letter.ogg");
         paperAudio.volume = 0.6;
-        document.getElementById("p1").addEventListener('click', function() { paperAudio.currentTime = 0; paperAudio.play(); this.classList.toggle("clicked1"); });
-        document.getElementById("p2").addEventListener('click', function() { paperAudio.currentTime = 0; paperAudio.play(); this.classList.toggle("clicked2"); });
-        document.getElementById("p3").addEventListener('click', function() { paperAudio.currentTime = 0; paperAudio.play(); this.classList.toggle("clicked3"); });
+        document.getElementById("p1").addEventListener('mouseover', function() { paperAudio.currentTime = 0; paperAudio.play(); });
+        document.getElementById("p2").addEventListener('mouseover', function() { paperAudio.currentTime = 0; paperAudio.play(); });
+        document.getElementById("p3").addEventListener('mouseover', function() { paperAudio.currentTime = 0; paperAudio.play(); });
 
         let loaded = false;
         function loadWeb(){
             if (loaded) return;
+            document.body.style.cursor = "auto";
             const fadeOverlay = document.getElementById('fade-inout');
             fadeOverlay.style.opacity = '0';
             setTimeout(() => {
@@ -184,6 +185,7 @@
         window.addEventListener('load', () => {
             setTimeout(() => {
                 document.getElementById('introText').innerHTML = "KLIKNĚTE PRO POKRAČOVÁNÍ!";
+                document.body.style.cursor = "pointer";
                 document.addEventListener("click", () => { loadWeb() });
             }, 1000);
         });

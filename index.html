@@ -149,14 +149,19 @@
         var countdown = "";
         const countdownText = document.getElementById("countdown");
         function timeUntil() {
+            let countdown;
             let diff = new Date("2025-04-01T00:00:00") - new Date();
-            let days = Math.floor(diff / (1000 * 60 * 60 * 24));
-            let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
-            let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
-            let seconds = Math.floor((diff % (1000 * 60)) / 1000);
-            if (days > 0) hours++;
-            if (hours >= 24) { days++; hours = 0; };
-            const countdown = `${days} d, ${hours} h, ${minutes} m, ${seconds} s`;
+            if (diff < 0){
+                countdown = "Čas nadešel.";
+            } else {
+                let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                if (days > 0) hours++;
+                if (hours >= 24) { days++; hours = 0; };
+                countdown = `${days} d, ${hours} h, ${minutes} m, ${seconds} s`;
+            }
             document.title = countdown;
             countdownText.innerHTML = countdown;
         }

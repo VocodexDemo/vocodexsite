@@ -72,17 +72,6 @@
             filter: sepia(0%) saturate(110%) brightness(100%) contrast(100%);
             z-index: 998;
         }
-        #p3{
-            position: absolute;
-            top: calc(50% - 1.5vw);
-            left: calc(50% - 0.3vw);
-            width: 8.5vw;
-            height: auto;
-            cursor: pointer;
-            transform: rotateY(-48deg) rotateZ(-1deg);
-            filter: sepia(50%) saturate(90%) brightness(50%) contrast(110%);
-            transition: 0.3s steps(4), filter 0.3s ease;
-        }
         #p3:hover{
             top: 50%;
             left: calc(50% - (min(65vh, 90vw) / 2));
@@ -137,7 +126,6 @@
     <div class="container">
         <img id="bgimg" src="" class="responsive-image" alt="img" draggable="false">
         <img id="p2" src="img/teaser2.webp" alt="paper" draggable="false">
-        <img id="p3" src="img/teaser3.webp" alt="paper" draggable="false">
         <img id="p1" src="img/teaser1.webp" alt="paper" draggable="false">
     </div>
     <p id="countdown"></p>
@@ -177,7 +165,6 @@
         paperAudio.volume = 0.6;
         document.getElementById("p1").addEventListener('mouseover', function() { paperAudio.currentTime = 0; paperAudio.play(); });
         document.getElementById("p2").addEventListener('mouseover', function() { paperAudio.currentTime = 0; paperAudio.play(); });
-        document.getElementById("p3").addEventListener('mouseover', function() { paperAudio.currentTime = 0; paperAudio.play(); });
 
         let loaded = false;
         function loadWeb(){

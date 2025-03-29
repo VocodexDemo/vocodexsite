@@ -39,6 +39,7 @@ let dialogy = [
 ]
 
 dialogy.forEach(e => {
+    e.load();
     e.volume = 0.6;
     if (dialogy[6] == e) e.volume = 1; // vybuch
     if (dialogy[7] == e) e.volume = 0.3; // darkambient

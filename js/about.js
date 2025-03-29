@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", () => {
     let key = document.getElementById("key");
     if (localStorage.getItem("skladUnlocked") == "true") key.remove();
+    else if (localStorage.getItem("item16") != "true") key.remove();
     else {
         let keyAudio = new Audio("./sounds/key-grab.ogg");
         key.addEventListener("click", ()=>{

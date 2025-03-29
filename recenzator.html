@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html lang="cs">
+    <head>
+        <meta charset="UTF-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0">
+        <meta name="robots" content="noindex, nofollow">
+        <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+        <title>Recenzator</title>
+        <link rel="stylesheet" href="styles/review.css">
+        <link rel="stylesheet" href="styles/browserCheck.css">
+        <link rel="icon" href="icons/recenze.ico" type="image/x-icon">
+    </head>
+    <body>
+        <div class="review-box">
+            <h1>Recenzátor ⭐⭐⭐⭐⭐</h1>
+            <p>Ohodnoťte dveřní systém</p>
+            <textarea id="reviewText" placeholder="Napište svou recenzi zde..."></textarea>
+            <button id="submitBtn">
+              <span><b>Odeslat</b></span> <span class="arrow">➡️</span>
+            </button>
+            <button id="skipBtn" class="skip-button">Neposílat recenzi a pokračovat na download</button>
+        </div>
+            
+        <div id="errorOverlay" style="display: none;">
+            <div class="error-background error1">CHYBA</div>
+            <div class="error-background error2">CHYBA</div>
+            <div class="error-background error3">CHYBA</div>
+            <div class="error-background error4">CHYBA</div>
+            <div class="error-background error5">CHYBA</div>
+            <span class="error-text">CHYBA: 808</span>
+            <span class="error-code">Není platná recenze, neodesláno</span>
+        </div>
+
+        <script src="js/recenze.js"></script>
+        <script>
+            localStorage.setItem("item10", "true");
+        </script>
+            
+        <div id="notificationPopup"></div>
+        <script src="js/browserCheck.js"></script>
+        <script src="js/hub-button.js"></script>
+    </body>
+</html>

@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Otevírej Dveře pro Kód</title>
+    <link rel="stylesheet" href="styles/doors.css">
+    <link rel="stylesheet" href="styles/browserCheck.css">
+    <link rel="icon" href="icons/key.ico" type="image/x-icon">
+</head>
+<body>
+    <div id="fade-inout"></div>
+    <div class="container">
+        <div class="door" onclick="openDoor(this, 'code1.html')">
+            <img class="closed" src="img/closed-door.webp" alt="Door 1" draggable="false">
+        </div>
+        <div class="door" onclick="openDoor(this, 'code2.html')">
+            <img class="closed" src="img/closed-door.webp" alt="Door 2" draggable="false">
+        </div>
+        <div class="door" onclick="openDoor(this, 'code3.html')">
+            <img class="closed" src="img/closed-door.webp" alt="Door 3" draggable="false">
+        </div>
+    </div>
+
+    <div class="safe-container">
+        <div class="safe-bar">
+            <input type="text" id="codeInput" placeholder="Zadej kód" maxlength="5" oninput="this.value = this.value.replace(/[^0-9]/g, '')">
+            <span id="errorMark" class="hidden">✖️</span>
+        </div>
+        <button onclick="submitCode()"><b>ZÍSKAT NYNÍ!</b></button>
+        <button onclick="clearCode()">Smazat</button>
+    </div>
+    <script src="js/doors.js"></script>
+    <script>
+        localStorage.setItem("item4", "true");
+    </script>
+
+    <div id="notificationPopup"></div>
+    <script src="js/browserCheck.js"></script>
+    <script src="js/hub-button.js"></script>
+</body>
+</html>

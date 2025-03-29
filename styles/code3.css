@@ -1,0 +1,105 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    font-family: Arial, sans-serif;
+}
+  
+#cinema {
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100vw;
+    position: relative;
+}
+  
+#video {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -56%);
+    width: 60%;
+    min-width: 180px;
+    z-index: 200;
+}
+
+#blackScreen {
+    background-color: black;
+    width: 100vw;
+    height: 100vh;
+    cursor: pointer;
+}
+
+.door {
+    position: absolute; 
+    top: 20px; 
+    right: 20px; 
+    width: 100px; 
+    height: auto; 
+    cursor: pointer; 
+}
+
+@media (max-width: 768px) {
+    .door {
+        position: fixed; 
+        top: 20px; 
+        right: 20px; 
+        width: 80px;
+        height: auto; 
+        cursor: pointer; 
+    }
+}
+
+@media (max-width: 480px) {
+    .door {
+        position: fixed; 
+        top: 20px;
+        right: 20px; 
+        width: 60px;
+        height: auto;
+        cursor: pointer; 
+    }
+}
+
+@media (max-height: 400px) {
+    .door {
+        position: fixed; 
+        top: 60px; 
+        right: 20px; 
+        width: 50px; 
+        height: auto; 
+        cursor: pointer;
+    }
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/grain.gif') center center repeat;
+    background-size: 30%;
+    pointer-events: none;
+    opacity: 0.4;
+    image-rendering: pixelated;
+    mix-blend-mode: overlay;
+    z-index: 150;
+}
+
+#fade-inout {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 1s ease;
+    z-index: 1000;
+}

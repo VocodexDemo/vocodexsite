@@ -1,0 +1,162 @@
+@import url('https://fonts.googleapis.com/css2?family=Libre+Baskerville&display=swap');
+
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    background-image: url("../img/vocodex1e.webp");
+    image-rendering: pixelated;
+    background-position: 65% center;
+    background-size: cover;
+    user-select: none;
+    -webkit-user-select: none;
+    font-family: Arial, sans-serif;
+}
+  
+.door {
+    position: absolute; 
+    top: 20px; 
+    right: 20px; 
+    width: 100px; 
+    height: auto; 
+    cursor: pointer; 
+}
+
+#vybuch {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    background-size: 30%;
+    z-index: 998;
+    opacity: 0;
+    visibility: hidden;
+}
+#vybuch.animate {
+    animation: vybuchKeyframes 10s forwards;
+}
+@keyframes vybuchKeyframes {
+    0% {
+        visibility: visible;
+        opacity: 1;
+    }
+    30% {
+        opacity: 1;
+    }
+    100% {
+        opacity: 0;
+        visibility: hidden;
+    }
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/grain.gif') center center repeat;
+    background-size: 30%;
+    pointer-events: none;
+    opacity: 0.6;
+    image-rendering: pixelated;
+    mix-blend-mode: overlay;
+    z-index: 999;
+}
+
+#speechBubble{
+    position: absolute;
+    top: 15vh;
+    right: 45%;
+    background-color: #ababab;
+    width: 400px;
+    min-height: 18px;
+    max-width: 45vw;
+    border-radius: 10px;
+    border: solid;
+    border-color: #282828;
+    padding: 3px 10px;
+    font-family: 'Libre Baskerville', serif;
+    font-weight: 500;
+}
+#moznosti{
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    gap: 5px;
+    width: 96vw;
+    margin-left: 2vw;
+    bottom: 5vh;
+}
+#moznost1{
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+    cursor: pointer;
+}
+#moznost1:hover{
+    background-color: rgba(222, 222, 222, 0.7);
+}
+#moznost2{
+    background-color: rgba(255, 255, 255, 0.7);
+    width: 100%;
+    text-align: center;
+    font-size: 18px;
+    padding: 10px;
+    cursor: pointer;
+}
+#moznost2:hover{
+    background-color: rgba(222, 222, 222, 0.7);
+}
+
+@media (max-width: 768px) {
+    .door {
+        position: fixed; 
+        top: 20px; 
+        right: 20px; 
+        width: 80px;
+        height: auto; 
+        cursor: pointer; 
+    }
+}
+
+@media (max-width: 480px) {
+    .door {
+        position: fixed; 
+        top: 20px;
+        right: 20px; 
+        width: 60px;
+        height: auto;
+        cursor: pointer; 
+    }
+}
+
+@media (max-height: 400px) {
+    .door {
+        position: fixed; 
+        top: 60px; 
+        right: 20px; 
+        width: 50px; 
+        height: auto; 
+        cursor: pointer;
+    }
+}
+
+#fade-inout {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 1s ease;
+    z-index: 1000;
+}

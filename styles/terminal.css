@@ -1,0 +1,84 @@
+body {
+    background-color: black;
+    color: #c4c4c4;
+    font-family: monospace;
+    padding: 20px;
+    font-size: 0.9rem;
+}
+
+#output {
+    white-space: pre-line;
+}
+
+#input-line {
+    display: flex;
+    align-items: center;
+}
+
+#prompt {
+    margin-right: 0px;
+    width: auto;
+}
+
+#command-input {
+    background: none;
+    border: none;
+    color: #c4c4c4;
+    font-family: inherit;
+    font-size: inherit;
+    outline: none;
+    width: 100%;
+}
+
+.hidden {
+    display: none;
+}
+
+#clippy-container {
+    position: fixed;
+    top: 12.8rem;
+    right: 30rem;
+    z-index: 1000;
+}
+
+#clippy-sprite {
+    width: 70px;
+    height: auto;
+}
+
+#clippy-bubble {
+    position: absolute;
+    top: 0;
+    left: 80px;
+    background-color: #f0eed3;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    border: 2px solid #000;
+    display: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    min-width: 250px;
+}
+
+#clippy-text {
+    margin: 0;
+}
+
+#clippy-next {
+    top: 2rem;
+    margin-top: 2rem;
+    background-color: #554c0b;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+}
+
+#clippy-next:hover {
+    background-color: #1e2000;
+}

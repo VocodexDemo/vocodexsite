@@ -1,0 +1,91 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    overflow: hidden;
+    font-family: Arial, sans-serif;
+}
+
+.background-layer {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+    background-position: center;
+}
+
+#backgroundLayer1 {
+    background-image: url('../img/recenze.webp');
+    opacity: 1;
+    transition: opacity 2s ease;
+    z-index: 1;
+}
+
+#backgroundLayer2 {
+    background-image: url('../img/recenze0.webp');
+    opacity: 0;
+    transition: opacity 3s ease;
+    z-index: 2;
+}
+
+#backgroundLayer3 {
+    background-image: url('../img/cloud.webp');
+    display: none;
+    z-index: 3;
+}
+
+.hidden {
+    display: none;
+  }
+  
+  #clippy-container {
+    position: fixed;
+    top: 33%;
+    left: 60%;
+    z-index: 1000;
+  }
+  
+  #clippy-sprite {
+    width: 70px;
+    height: auto;
+  }
+  
+  #clippy-bubble {
+    position: absolute;
+    top: 0;
+    left: 80px;
+    background-color: #f0eed3;
+    color: black;
+    padding: 10px 20px;
+    border-radius: 8px;
+    font-family: 'Courier New', Courier, monospace;
+    font-size: 14px;
+    border: 2px solid #000;
+    display: none;
+    box-shadow: 0 0 5px rgba(0, 0, 0, 0.7);
+    min-width: 250px;
+  }
+  
+  #clippy-text {
+    margin: 0;
+  }
+  
+  #clippy-next {
+    top: 2rem;
+    margin-top: 2rem;
+    background-color: #554c0b;
+    color: white;
+    border: none;
+    padding: 5px 10px;
+    font-size: 12px;
+    cursor: pointer;
+    border-radius: 5px;
+    font-family: 'Courier New', Courier, monospace;
+  }
+  
+  #clippy-next:hover {
+    background-color: #1e2000;
+  }
+  

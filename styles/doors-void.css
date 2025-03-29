@@ -1,0 +1,105 @@
+html {
+    margin: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: #000000;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    font-family: Arial, sans-serif;
+}
+
+/* FONTY */
+.chewy-regular {
+    font-family: "Chewy", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+.montserrat {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200; /* 100 - 900 */
+    font-style: normal;
+}
+
+.container {
+    z-index: 2;
+    display: flex;
+    justify-content: center;
+    gap: 5rem;
+}
+
+.door img {
+    height: 40vh;
+    width: auto;
+    cursor: pointer;
+    transition: transform 0.3s steps(3), filter 0.4s ease;
+    filter: drop-shadow(0 4px 15px #0f0f0f80); 
+}
+
+.door img:hover {
+    transform: scale(1.1) rotate(3deg);
+    filter: drop-shadow(0 8px 25px #0f0f0f80); 
+}
+
+@media (max-width: 1024px) {
+    .container {
+        gap: 0.3rem;
+    }
+    .door img {
+        width: 22vw;
+        height: auto;
+    }
+}
+
+@media (max-width: 600px) {
+    .container {
+        flex-direction: column;
+        gap: 0rem;
+    }
+    .door img {
+        width: auto;
+        height: 22vh;
+    }
+}
+
+#particles-js {
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    z-index: -1;
+    opacity: 0.5;
+    overflow: hidden;
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/grain.gif') center center repeat;
+    background-size: 30%;
+    pointer-events: none;
+    opacity: 0.12;
+    image-rendering: pixelated;
+    mix-blend-mode: hard-light;
+    z-index: 999;
+}
+
+#fade-inout {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 1s ease;
+    z-index: 1000;
+}

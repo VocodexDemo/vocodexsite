@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Vocodex puzzle</title>
+    <link rel="stylesheet" href="styles/code2.css">
+    <link rel="stylesheet" href="styles/browserCheck.css">
+    <link rel="icon" href="icons/puzzle.ico" type="image/x-icon">
+</head>
+<body>
+    <script src="js/clickToLoad.js"></script>
+    
+    <div class="door" onclick="goToDoors(this)">
+        <img class="door" src="img/open-door.webp" alt="Door 1" draggable="false">
+    </div> 
+    <h1 id="win-message" style="display:none;">Vyřešil si to! Část kódu: 26</h1>
+    <div id="game-board"></div>
+    <script src="js/page2.js"></script>
+    <script>
+        localStorage.setItem("item6", "true");
+    </script>
+    <div id="notificationPopup"></div>
+    <script src="js/browserCheck.js"></script>
+    <script src="js/hub-button.js"></script>
+</body>
+</html>

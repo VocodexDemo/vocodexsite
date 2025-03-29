@@ -1,0 +1,384 @@
+body {
+    margin: 0;
+    padding: 0;
+    background: linear-gradient(rgb(43, 35, 52), rgb(20,20,20));
+    background-repeat:space;
+    background-size: cover;
+    overflow-x: hidden;
+}
+
+html{
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200; /* 100 - 900 */
+    font-style: normal;
+    background: rgb(20,20,20);
+    scroll-behavior: smooth;
+}
+
+/* FONTY */
+.chewy-regular {
+    font-family: "Chewy", system-ui;
+    font-weight: 400;
+    font-style: normal;
+}
+.montserrat {
+    font-family: "Montserrat", sans-serif;
+    font-optical-sizing: auto;
+    font-weight: 200; /* 100 - 900 */
+    font-style: normal;
+}
+
+/* HEADER */
+header{
+    position: fixed;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: 0 9vw;
+    width: 82vw;
+    height: 8vh;
+    background-color: rgba(0, 0, 0, 0.7);
+    z-index: 998;
+}
+#blurDiv{
+    position: absolute;
+    width: 100vw;
+    height: 8vh;
+    transform: translateX(-9vw);
+    backdrop-filter: blur(20px);
+    z-index: -1;
+}
+#header1 {
+    display: flex;
+    width: 30%;
+    min-width: 350px;
+    justify-content: space-between;
+}
+#burgerBtn{
+    display: none;
+    width: 3vh;
+    height: 3vh;
+    background: linear-gradient(#fff 20%, #fff0 21%, #fff0 40%, #fff 41%, #fff 59%, #fff0 60%, #fff0 79%, #fff 80%);
+    border: none;
+    cursor: pointer;
+}
+header p{
+    font-size: 2vh;
+    color: #fff;
+}
+header a {
+    position: relative;
+    text-decoration: none;
+    color: inherit;
+    transition: color 0.3s ease,
+}
+header a::after {
+    content: '';
+    position: absolute;
+    width: 0;
+    height: 2px;
+    bottom: -3px;
+    left: 0;
+    background-color: #ffffff;
+    transition: width 0.3s ease; 
+}
+header a:hover {
+    color: #faffba; 
+}
+header a:hover::after {
+    width: 100%; 
+}
+
+a {
+    text-decoration: none;
+    color: inherit;
+}
+
+/* CONTENT */
+.uvod{
+    background: linear-gradient(#0000009e, #0c0c0c),
+    url(../about/main.webp);
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 0 15vw;
+}
+.uvod p{
+    text-align: center;
+}
+.uvod h1, p{
+    margin: 0;
+    padding: 0;
+}
+#uvod-podnadpis{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-between;
+    width: 53.5vw;
+}
+#histor{
+    background: linear-gradient(#0c0c0c, #000000),
+    url(../img/byt3.webp);
+    background-size: cover;
+    background-position: center;
+}
+#background{
+    background: linear-gradient(#000000d3, #000000ee),
+    url(../about/bac.webp);
+    background-size: cover;
+    background-position: center;
+}
+#vizu{
+    background: linear-gradient(#0000009e, #000000c9),
+    url(../about/viz.webp);
+    background-size: cover;
+    background-position: center;
+}
+#web{
+    background: linear-gradient(#0000009e, #131313),
+    url(../about/web.webp);
+    background-size: cover;
+    background-position: center;
+}
+.historie{
+    height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    color: #fff;
+    padding: 0 25vw;
+    text-align: justify;
+}
+
+.uvod h1{
+    font-size: 3.6vw;
+    text-align: center;
+}
+.uvod p{
+    font-size: 1.2vw;
+}
+h2{
+    margin: 0;
+    margin-bottom: 10px;
+    text-align: center;
+    font-size: 48px;
+}
+h3{
+    margin: 7px 0 20px 0;
+    text-align: center;
+    font-size: 24px;
+}
+p{
+    font-size: 24px;
+}
+.sectionBlock{
+    display: flex;
+    flex-direction: row;
+    height: auto;
+}
+.section {
+    padding: 35vh 5vw;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    text-align: justify;
+    color: #fff;
+    width: 50%;
+}
+#s1 {
+    background: linear-gradient(#000000, #000000ba, #000000e3), url(/about/fan.webp);
+    background-position: center;
+    background-size: cover;
+}
+#s2 {
+    background: linear-gradient(#000000, #000000ba, #000000e3), url(/about/time.webp);
+    background-position: center;
+    background-size: cover;
+}
+#s3 {
+    background: linear-gradient(#000000ba, #000000e3), url(/about/rap.webp);
+    background-position: center;
+    background-size: cover;
+}
+#s4 {
+    background: linear-gradient(#000000ba, #000000e3), url(/about/skibidi.webp);
+    background-position: center;
+    background-size: cover;
+}
+#s5 {
+    background: linear-gradient(#000000ba, #000000e3), url(/about/cerpadlo.webp);
+    background-position: center;
+    background-size: cover;
+}
+#s6 {
+    background: linear-gradient(#000000ba, #000000e3), url(/about/feeling.webp);
+    background-position: center;
+    background-size: cover;
+}
+#s7 {
+    background: linear-gradient(#000000ba, #000000e3), url(/about/carp.webp);
+    background-position: center;
+    background-size: cover;
+}
+#s8 {
+    background: linear-gradient(#000000ba, #000000e3), url(/about/voco.webp);
+    background-position: center;
+    background-size: cover;
+}
+
+.podpora{
+    background: linear-gradient(#131313, #0c0c0c);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 0 30dvw;
+    width: 40dvw;
+    height: 92dvh;
+    color: #fff;
+    text-align: center;
+}
+.podpora h1{
+    font-size: 56px;
+}
+.podpora h2{
+    font-size: 32px;
+    padding: 10px 0;
+}
+.podpora p{
+    font-size: 24px;
+}
+
+.image{
+    width: 50%;
+    height: auto;
+}
+
+@media (max-width: 1400px) {
+    h2{
+        font-size: 40px;
+    }
+    h3{
+        font-size: 25px;
+    }
+    p{
+        font-size: 20px;
+    }
+    .podpora{
+        padding: 0 25dvw;
+        width: 50dvw;
+    }
+    .podpora h1{
+        font-size: 48px;
+    }
+    .podpora h2{
+        font-size: 25px;
+        padding: 10px 0;
+    }
+    .podpora p{
+        font-size: 20px;
+    }
+}
+@media (max-width: 1050px) {
+    #uvod-podnadpis{
+        flex-direction: column;
+        justify-content: center;
+    }
+    .uvod h1{
+        font-size: 7vw;
+    }
+    .uvod p{
+        font-size: 2vw;
+    }
+    .historie{
+        padding: 0 10vw;
+    }
+    .sectionBlock{
+        flex-direction: column;
+    }
+    #s2 {
+        background: linear-gradient(#000000ba, #000000e3), url(/about/time.webp);
+        background-position: center;
+        background-size: cover;
+    }
+    .section{
+        padding: 15vh 10vw;
+        width: auto;
+    }
+    #header1 p{
+        font-size: 20px;
+    }
+    .podpora h1{
+        font-size: 44px;
+    }
+    .podpora h2{
+        font-size: 23px;
+    }
+    .podpora p{
+        font-size: 20px;
+    }
+}
+@media (max-width: 640px) {
+    #header1{
+        display: none;
+        position: absolute;
+        width: 100vw;
+        height: 160px;
+        min-width: 0;
+        flex-direction: column;
+        text-align: center;
+        margin: 0;
+        background: #00000053;
+        transform: translate(-9vw, calc(4vh + 79px));
+        justify-content: center;
+        backdrop-filter: blur(10px);
+    }
+    #header1 p{
+        margin: 7px 0;
+        font-size: 18px;
+    }
+    #burgerBtn{
+        display: block;
+    }
+    .section{
+        padding: 0 7vw;
+        height: 100dvh;
+    }
+    p{
+        font-size: 20px;
+    }
+    .podpora{
+        padding: 0 14vw;
+        width: 72dvw;
+    }
+    .podpora h1{
+        font-size: 36px;
+    }
+    .podpora h2{
+        font-size: 22px;
+        padding: 10px 0;
+    }
+    .podpora p{
+        text-align: justify;
+        font-size: 20px;
+    }
+}
+
+a{
+    color: #6dc7ff;
+    transition: 0.5s;
+}
+a:hover{
+    text-decoration: underline;
+}
+header a:hover{
+    text-decoration: none;
+}

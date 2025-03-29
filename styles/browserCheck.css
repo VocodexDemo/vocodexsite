@@ -1,0 +1,47 @@
+#notificationPopup {
+    position: fixed;
+    top: -100px;
+    right: 20px;
+    padding: 15px 20px;
+    background: linear-gradient(#af4c4c9c, #9639399c);
+    backdrop-filter: blur(5px);
+    color: #fff;
+    font-size: 16px;
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    z-index: 1000;
+    opacity: 0;
+    transition: opacity 0.3s ease, top 0.5s ease;
+    max-width: 400px;
+}
+#notificationPopup.active {
+    top: 20px;
+    opacity: 1;
+}
+#notificationPopup.hide {
+    opacity: 0;
+    top: -100px;
+}
+
+.overlay-button {
+    position: fixed;
+    bottom: 10px;
+    left: 10px;
+    width: 50px;
+    height: 50px;
+    background-color: #0000000c;
+    border-radius: 5px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    cursor: pointer;
+    z-index: 9999;
+}
+.overlay-button img {
+    width: 30px;
+    height: 30px;
+}
+.overlay-button:hover {
+    background-color: #00000038;
+}

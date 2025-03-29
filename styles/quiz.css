@@ -1,0 +1,213 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    background-color: #000000;
+    font-family: 'Arial', sans-serif;
+    height: 100vh;
+    overflow: hidden;
+}
+
+#quiz-background{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    z-index: 0;
+    width: 100vw;
+    height: 100vh;
+    background: #334251;
+    animation: bgFadeIn 3s ease-out;
+}
+@keyframes bgFadeIn {
+    from {
+        background: #000000;
+    }
+    to {
+        background: #334251;
+    }
+}
+
+.quiz-container {
+    width: 70%;
+    max-width: 900px;
+    text-align: center;
+    padding: 80px 40px;
+    border: 2px solid #ffffff;
+    background-color: #ffffff75;
+    backdrop-filter: blur(10px);
+    border-radius: 10px;
+    box-shadow: 0px 0px 40px rgba(0, 0, 0, 0.3);
+    transition: transform 0.5s ease;
+    z-index: 3;
+    align-items: center;
+    justify-content: center;
+    padding-bottom: 40px;
+    transform: scale(0.97);
+    animation: quFadeIn 2s;
+}
+.quiz-container:hover {
+    transform: scale(1);
+}
+@keyframes quFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+
+.title {
+    font-size: 2.5em;
+    color: #ffffff;
+    filter: drop-shadow(0px 8px 10px #00000038);
+    margin-bottom: 20px;
+    animation: fadeIn 4s;
+}
+.question {
+    font-size: 2em;
+    color: #ffffff;
+    margin-bottom: 20px;
+    animation: slideIn 2s cubic-bezier(0.1, 0.4, 0.165, 1);
+}
+
+@keyframes fadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 1;
+    }
+}
+@keyframes slideIn {
+    0% {
+        transform: translateY(20px);
+        opacity: 0;
+    }
+    100% {
+        transform: translateY(0);
+        opacity: 1;
+    }
+}
+
+.answer-buttons {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 15px;
+    margin-top: 20px;
+    animation: btnsFadeIn 3s ease-out;
+}
+@keyframes btnsFadeIn {
+    0% {
+        opacity: 0;
+    }
+    20% {
+        opacity: 0;
+    }
+    100% {
+        opacity: 1;
+    }
+}
+
+.answer-buttons button {
+    min-width: 150px;
+    background-color: #add4e8;
+    color: #ffffff;
+    filter: drop-shadow(0px 8px 10px #00000038);
+    text-shadow: 2px 2px 6px #0000006a;
+    font-size: 1.2em;
+    padding: 15px 25px;
+    margin: 10px;
+    border: none;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+}
+.answer-buttons button:hover {
+    background-color: #89d0e1;
+    transform: translateY(-3px);
+}
+.answer-buttons button:disabled {
+    background-color: #b3b3b3;
+    cursor: not-allowed;
+}
+
+.next-button {
+    margin-top: 30px;
+    font-size: 1.2em;
+    padding: 10px 20px;
+    border: none;
+    background-color: #fb8500;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease, transform 0.3s ease;
+    animation: slideIn 1s cubic-bezier(0.1, 0.4, 0.165, 1);
+}
+.next-button:hover {
+    background-color: #ffb703;
+    transform: scale(1.05);
+}
+
+.result {
+    font-size: 1.5em;
+    color: #91f59e;
+    text-shadow: #000000;
+    margin-top: 30px;
+    animation: fadeIn 1s ease-in-out;
+}
+
+#particles-js {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    top: 0;
+    left: 0;
+    z-index: 1;
+    animation: parFadeIn 20s;
+    opacity: 0.5;
+}
+@keyframes parFadeIn {
+    from {
+        opacity: 0;
+    }
+    to {
+        opacity: 0.5;
+    }
+}
+
+@media (max-width: 700px){
+    .quiz-container {
+        width: 90%;
+        text-align: center;
+        padding: 70px 30px;
+        padding-bottom: 30px;
+    }
+    .question {
+        font-size: 1.5em;
+    }
+    .answer-buttons {
+        gap: 10px;
+        margin-top: 15px;
+        animation: btnsFadeIn 3s ease-out;
+    }
+    .answer-buttons button {
+        min-width: 120px;
+        font-size: 1em;
+        padding: 10px 20px;
+        margin: 7px;
+    }
+    .next-button {
+        margin-top: 20px;
+        font-size: 1em;
+        padding: 7px 15px;
+    }
+    .result {
+        font-size: 1em;
+    }
+}

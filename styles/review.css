@@ -1,0 +1,153 @@
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    font-family: Arial, sans-serif;
+    background-color: #f4f4f4;
+}
+
+.review-box {
+    text-align: center;
+    background-color: white;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    width: 300px;
+}
+
+h1 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+p {
+    font-size: 14px;
+    color: gray;
+    margin-bottom: 15px;
+}
+
+textarea {
+    width: 100%;
+    height: 100px;
+    padding: 10px;
+    margin-bottom: 15px;
+    border-radius: 5px;
+    border: 1px solid #ddd;
+    resize: none;
+}
+
+button {
+    width: 100%; 
+    background-color: #28a745;
+    color: white;
+    border: none;
+    padding: 10px; 
+    border-radius: 5px;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 10px; 
+}
+
+button .arrow {
+    margin-left: 5px;
+}
+
+button:hover {
+    background-color: #218838;
+}
+
+.skip-button {
+    width: 100%; 
+    padding: 5px; 
+    font-size: 14px; 
+    background-color: #f0f0f0; 
+    color: #333; 
+    border: 1px solid #ccc; 
+    border-radius: 5px; 
+    cursor: pointer; 
+    transition: background-color 0.3s; 
+}
+
+.skip-button:hover {
+    background-color: #e0e0e0;
+}
+
+#errorOverlay {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(255, 0, 0, 0.9);
+    color: white;
+    font-size: 48px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    flex-direction: column;
+    text-align: center;
+    border: 20px solid red;
+    animation: blink 0.5s infinite alternate;
+    overflow: hidden;
+}
+
+.error-background {
+    position: absolute;
+    font-size: 200px; 
+    font-family: 'Courier New', Courier, monospace; 
+    opacity: 0.3;
+    color: rgba(255, 0, 0, 0.8); 
+    white-space: nowrap; 
+    z-index: -1; 
+}
+
+@keyframes move {
+    0% {
+        transform: translateX(-100%);
+    }
+    100% {
+        transform: translateX(100%);
+    }
+}
+
+@keyframes blink {
+    from { background-color: rgba(255, 0, 0, 0.9); }
+    to { background-color: rgba(255, 0, 0, 0.6); }
+}
+
+
+.error1 {
+    top: 20%; left: 0;
+    animation: move 2s linear infinite; 
+}
+
+.error2 {
+    top: 40%; left: 0;
+    animation: move 2.5s linear infinite;
+}
+
+.error3 {
+    top: 60%; left: 0;
+    animation: move 3s linear infinite; 
+}
+
+.error4 {
+    top: 30%; left: 0;
+    animation: move 3.5s linear infinite; 
+}
+
+.error5 {
+    top: 50%; left: 0;
+    animation: move 2.8s linear infinite;
+}

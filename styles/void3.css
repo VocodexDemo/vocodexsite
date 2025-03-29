@@ -1,0 +1,203 @@
+body, html {
+    margin: 0;
+    padding: 0;
+    height: 100%;
+    width: 100%;
+    overflow: hidden;
+    user-select: none;
+    -webkit-user-select: none;
+    font-family: Arial, sans-serif;
+}
+  
+.container {
+    position: relative;
+    height: 100vh;
+    width: 100vw;
+    overflow: hidden;
+}
+
+.responsive-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    object-position: center 47%;
+}
+
+#button1 {
+    top: 36vh;
+    left: 50%;
+    transform: translate(calc(-150% - 9vw), -50%);
+    width: calc(max(11vh, 11vw));
+    height: calc(max(20vh, 15vw));
+}
+#button2 {
+    top: 26vh;
+    left: 55vw;
+    transform: translate(-50%, -50%);
+    width: calc(max(12vh, 12vw));
+    height: calc(max(30vh, 20vw));
+}
+#button3 {
+    top: 30vh;
+    left: 50%;
+    transform: translate(calc(150% + 1vw), -50%);
+    width: calc(max(11vh, 11vw));
+    height: calc(max(30vh, 25vw));
+}
+#button4 {
+    top: 48vh;
+    left: 50%;
+    transform: translate(calc(-150% - 15vw), -50%);
+    width: calc(max(20vh, 20vw));
+    height: calc(max(50vh, 35vw));
+}
+button{
+    cursor: pointer;
+    position: absolute;
+    border: none;
+    background-color: rgba(0, 0, 0, 0);
+    filter: blur(3vw);
+}
+button:hover{
+    background-color: rgba(171, 171, 171, 0.401);
+}
+
+#backbtn {
+    position: absolute;
+    top: 85vh;
+    left: 85vw;
+    z-index: 999;
+    width: 12vw;
+    height: 12vh;
+    filter: none;
+    border-radius: 100%;
+    font-size: 5vw;
+    color: #fff;
+    transform: rotate(90deg);
+}
+#backbtn:hover{
+    background-color: #fff0;
+    filter: drop-shadow(0px 0px 1.5vw #fff)
+}
+
+#pocitacBg{
+    object-position: center 50%;
+}
+#pcDisplay {
+    position: absolute;
+    top: calc(50% - 8.5vw);
+    left: calc(50% - 9.2vw);
+    width: 18.4vw;
+    height: 17vw;
+    transform: rotate(-0.8deg);
+    mix-blend-mode: screen;
+    filter: brightness(110%) contrast(90%) sepia(40%) saturate(140%);
+    transition: 0.2s steps(4);
+    cursor: pointer;
+    opacity: 0;
+}
+#pcDisplay:hover{
+    top: calc(50% - min(53vh, 50vw));
+    left: calc(50% - min(47vh, 45vw));
+    clip-path: inset(min(8vh, 10vw) 0 0 0);
+    width: min(94vh, 90vw);
+    height: min(94vh, 90vw);
+    transform: rotate(0deg);
+    mix-blend-mode: normal;
+    filter: brightness(100%) contrast(100%) sepia(0%) saturate(100%);
+    transition: 0.2s steps(4);
+}
+#pcDisplay.no-hover:hover {
+    top: calc(50% - 8.5vw);
+    left: calc(50% - 9.2vw);
+    clip-path: initial;
+    width: 18.4vw;
+    height: 17vw;
+    transform: rotate(-0.8deg);
+    mix-blend-mode: screen;
+    filter: brightness(110%) contrast(90%) sepia(40%) saturate(140%);
+    transition: none;
+}
+
+#pcFloppy{
+    position: absolute;
+    top: calc(50% + 13.2vw);
+    left: calc(50% + 6.4vw);
+    width: 5.5vw;
+    height: auto;
+    filter: sepia(10%);
+    cursor: pointer;
+    transition: 0.15s steps(2);
+}
+#pcFloppy:hover{
+    transform: scale(1.1);
+    filter: sepia(0%) drop-shadow(0px 0px 20px #ffffff84);
+}
+
+#mydlo{
+    position: absolute;
+    top: calc(47% + 3.5vw);
+    left: calc(50% - 3.5vw);
+    width: 3vw;
+    height: auto;
+    filter: sepia(5%) saturate(70%) brightness(85%);
+    cursor: pointer;
+    transition: 0.3s steps(4);
+}
+#mydlo:hover{
+    transform: scale(7) rotate(10deg);
+    filter: saturate(110%) sepia(0%) brightness(100%);
+}
+
+#sklad{
+    perspective: 600px;
+    transform-style: preserve-3d;
+}
+#skladBg{
+    object-position: center 50%;
+}
+#proc{
+    position: absolute;
+    top: calc(50% + 12vw);
+    left: calc(50% - 7vw);
+    width: 6vw;
+    height: auto;
+    cursor: pointer;
+    transform: rotateX(60deg) rotateZ(-43deg);
+    filter: sepia(40%) saturate(90%) brightness(30%) contrast(110%);
+    transition: 0.3s steps(5), filter 0.3s ease;
+}
+#proc:hover{
+    top: 50%;
+    left: calc(50% - (min(75vh, 90vw) / 2));
+    width: min(75vh, 90vw);
+    transform: rotateX(0deg) rotateZ(0deg) translate(0%, -50%);
+    filter: sepia(0%) saturate(110%) brightness(100%) contrast(100%);
+}
+
+.overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: url('../img/grain.gif') center center repeat;
+    background-size: 30%;
+    pointer-events: none;
+    opacity: 0.2;
+    image-rendering: pixelated;
+    mix-blend-mode: overlay;
+}
+
+#fade-inout {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: black;
+    opacity: 1;
+    pointer-events: auto;
+    transition: opacity 1s ease;
+    z-index: 1000;
+}

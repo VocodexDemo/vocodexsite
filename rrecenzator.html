@@ -1,0 +1,36 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <link href="https://fonts.googleapis.com/css2?family=Orbitron&display=swap" rel="stylesheet">
+    <title>Recenzator</title>
+    <link rel="stylesheet" href="styles/rreview.css">
+    <link rel="stylesheet" href="styles/browserCheck.css">
+    <link rel="icon" href="icons/recenze.ico" type="image/x-icon">
+</head>
+    <body>
+        <div class="background-layer" id="backgroundLayer1"></div>
+        <div class="background-layer" id="backgroundLayer2"></div>
+        <div class="background-layer" id="backgroundLayer3"></div>
+
+        <div id="clippy-container" class="hidden">
+            <img id="clippy-sprite" src="img/sprite1.webp" alt="Clippy" draggable="false">
+            <div id="clippy-bubble">
+            <p id="clippy-text"></p>
+            <br>
+            <span id="clippy-next">➔</span>
+            </div>
+        </div>
+
+        <audio id="clip-sound" src="sounds/clip.ogg"></audio>
+        <audio id="clip2-sound" src="sounds/clip2.ogg" preload="auto"></audio>
+
+        <script src="js/clippy.js"></script>
+        <script>
+            if (window.innerWidth >= 800) localStorage.setItem("item8", "true");
+        </script>
+        <script src="js/hub-button.js"></script>
+    </body>
+</html>

@@ -1,0 +1,101 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="icons/kviz.ico" type="image/x-icon">
+    <title>Ověř se, Ableton vocodere</title>
+    <link rel="stylesheet" href="styles/quiz.css">
+    <link rel="stylesheet" href="styles/browserCheck.css">
+    <style>
+        #intro-screen {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100vw;
+            height: 100vh;
+            background: #000000;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            color: #ffffff;
+            font-size: 1.8vw;
+            text-align: center;
+            z-index: 9999;
+            cursor: pointer;
+            animation: fadeInStart 2s;
+        }
+        @keyframes fadeInStart {
+            from {
+                color: #000000;
+                font-size: 1vw;
+            }
+            to {
+                color: #ffffff;
+                font-size: 1.8vw;
+            }
+        }
+        @media (max-width: 700px){
+            #intro-screen {
+                font-size: 3.5vw;
+            }
+            @keyframes fadeInStart {
+                from {
+                    color: #000000;
+                    font-size: 3.5vw;
+                }
+                to {
+                    color: #ffffff;
+                    font-size: 3.5vw;
+                }
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="intro-screen">
+        <p>Vidím správně, že tu někdo nezvládl voCAPTCHu? Jsi snad Ableton vocoder? Budeš se muset ověřit jinak. Klikni...</p>
+    </div>
+    <div id="content" style="display: none;">
+        <div id="quiz-background">
+            <div id="particles-js"></div>
+            <div class="quiz-container">
+                <div id="question-container" class="question-container">
+                    <p id="question" class="question"></p>
+                    <div id="answer-buttons" class="answer-buttons"></div>
+                </div>
+                <button id="next-button" class="next-button">Další otázka</button>
+                <p id="result" class="result"></p>
+            </div>
+        </div>
+    </div>
+    <script>
+        function loadContent() {
+            document.getElementById('intro-screen').style.display = 'none';
+            document.getElementById('content').style.display = '';
+
+            let particlesScript = document.createElement('script');
+            particlesScript.src = "https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js";
+            document.body.appendChild(particlesScript);
+
+            let particlesConfigScript = document.createElement('script');
+            particlesConfigScript.src = "js/particles-config.js";
+            document.body.appendChild(particlesConfigScript);
+
+            let quizScript = document.createElement('script');
+            quizScript.src = "js/quiz.js";
+            document.body.appendChild(quizScript);
+        }
+
+        document.getElementById('intro-screen').addEventListener('click', loadContent);
+    </script>
+    <script>
+        localStorage.setItem("item12", "true");
+    </script>
+
+    <div id="notificationPopup"></div>
+    <script src="js/browserCheck.js"></script>
+    <script src="js/hub-button.js"></script>
+</body>
+</html>

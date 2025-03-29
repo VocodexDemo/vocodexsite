@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <link rel="icon" href="icons/download.ico" type="image/x-icon">
+    <title>Vocodex sampler pack download!</title>
+    <link rel="stylesheet" href="styles/download.css">
+    <link rel="stylesheet" href="styles/browserCheck.css">
+</head>
+<body>
+    <h1 id="hlavniNadpis">Stáhnout nyní <b>VOCODEX_SAMPLER_PACK.zip</b> zcela zdarma 100% žádný malware!</h1>
+    <p>Dokázali jste to! Je to on - 100% reálný download link na sample pack který hledáte! Upřímně nevím, co tu furt děláte a divím se, že jste zvládli překonat všechny překážky. Jde vidět, že sample pack opravdu chcete. Furt je ale cesta zpět, takže se ještě můžete zachránit. Každopádně níže na stránce můžete potvrdit, že pack opravdu chcete a můžete si ho finálně stáhnout!</p>
+    <div class="spacee"></div>
+    <p>Zaškrtnutím checkboxu potvrzujete, že znáte všechna rizika, která sample pack přináší a chcete ho opravdu stáhnout do svého počítače.</p>
+    <div class="checkbox-container" id="firstHeader">
+        <div class="checkbox" id="firstCheckbox"></div>
+        <div class="captcha-title">Opravdu chci sample pack</div>
+    </div>
+    <div class="spacee"></div>
+    <p>Dále prosím potvrďte, že jste opravdu člověk a nejste Ableton vocoder.</p>
+    <div class="captcha-container">
+        <div class="checkbox-container" id="captchaHeader">
+            <div class="checkbox" id="captchaCheckbox"></div>
+            <div class="captcha-title">Já nejsem Ableton vocoder</div>
+        </div>
+
+        <div class="captcha-header" id="instructionHeader">
+            Vyberte všechny obrázky, na kterých je
+            <strong id="prompt"></strong>
+        </div>
+
+        <div class="image-panel" id="imagePanel">
+            <div class="image-grid" id="imageGrid"></div>
+            <p id="errorMessage" style="color:red; display:none; text-align:center;"></p>
+        </div>
+
+        <div class="captcha-footer" id="captcha-footer">
+            <img src="img/point.webp" alt="dot" title="dot">
+            <img src="img/point.webp" alt="dot" title="dot">
+            <img src="img/point.webp" alt="dot" title="dot">
+            <button class="captcha-button" id="verifyButton">VERIFY</button>
+        </div>
+    </div>
+    <button id="download-btn">STÁHNOUT!</button>
+    <p id="download-txt"></p>
+
+    <div id="modal-background"></div>
+    <div id="payment-modal">
+        <h2 style="text-align: center;">Dokončení Vocodex nákupu</h2>
+        <div id="payOri">
+            <div>
+                <p>Vyberte způsob platby:</p>
+                <div id="payment-options">
+                    <label class="payment-opt"><img src="img/card.webp" alt="img"><input type="radio" name="payment-method" value="card"> <p>Kreditní karta</p></label><br>
+                    <label class="payment-opt"><img src="img/bitcoin.webp" alt="img"><input type="radio" name="payment-method" value="bitcoin"> <p>Bitcoin</p></label><br>
+                    <label class="payment-opt"><img src="img/kidney.webp" alt="img"><input type="radio" name="payment-method" value="kidney"> <p>Ledvina</p></label><br>
+                    <label class="payment-opt"><img src="img/newborn.webp" alt="img"><input type="radio" name="payment-method" value="firstborn"> <p>Novorozené dítě</p></label><br>
+                </div>
+            </div>
+
+            <div id="payment-form-card" class="payment-form" style="display:none;">
+                <p>Zadejte potřebné informace pro platbu.</p>
+                <label>Číslo karty:</label><input type="text" placeholder="1234 5678 9012 3456"><br>
+                <div style=" display: flex; gap: 10px; ">
+                    <div><label>Datum vypršení:</label><input type="text" placeholder="MM/YY"></div><br>
+                    <div><label>CVV:</label><input type="text" placeholder="123"></div>
+                </div>
+            </div>
+            <div id="payment-form-bitcoin" class="payment-form" style="display:none;">
+                <p>Zadejte potřebné informace pro platbu.</p>
+                <label>Bitcoin adresa:</label><input type="text" placeholder="1A1zP1eP5QGefi2DMPTfTL5SLmv7DivfNa">
+            </div>
+            <div id="payment-form-kidney" class="payment-form" style="display:none;">
+                <p>Pokud chcete platit ledvinou, vyplňte prosím krevní skupinu a adresu, na kterou naši zaměstnanci mají přijít pro vaši ledvinu (o vyjmutí ledviny se postaráme).</p>
+                <label>Vaše jméno a příjmení:</label>
+                <div style=" display: flex; gap: 10px; ">
+                    <input type="text" placeholder="Jméno"><input type="text" placeholder="Příjmení">
+                </div><br>
+                <label>Krevní skupina:</label><input type="text" placeholder="A, B, AB, 0">
+                <label>Adresa:</label><input type="text" placeholder="Město 12, ulice 34, psč">
+            </div>
+            <div id="payment-form-firstborn" class="payment-form" style="display:none;">
+                <p>Prosíme o registraci novorozeného dítěte. Dítě musí být <b>mladší než 10 měsíců</b>. Zadejte potřebné informace a adresu, kde si můžeme dítě vyzvednout.</p>
+                <label>Jméno a příjmení dítěte:</label>
+                <div style=" display: flex; gap: 10px; ">
+                    <input type="text" placeholder="Jméno"><input type="text" placeholder="Příjmení">
+                </div><br>
+                <label>Datum narození dítěte:</label><input type="date">
+                <label>Adresa:</label><input type="text" placeholder="Město 12, ulice 34, psč">
+            </div>
+        </div>
+
+        <button class="pay-now-btn">Zaplatit 24 520 CZK</button>
+        <p style="font-weight: bold; color: #f00; text-align: center;" id="payment-error-text"></p>
+        <button class="close-btn" id="close-modal">Zrušit</button>
+        <p class="help-href">CO? JAKÁ PLATBA??</p>
+    </div>
+    <div id="payment-output-modal">
+        <h2 id="payment-output-title"></h2>
+        <p id="finalText">Proč by sakra měla platba proběhnout? Proč bychom si účtovali za ten nejzbytečnější sample pack v existenci lidstva? Nejsme takový magoři, abychom chtěli peníze za zvuky určené k produkci hudby, které jsou nemožné použít k produkci hudby. Už jste dost blízko k získání sample packu. Už vás nebudeme přemlouvat, aby jste dělali lepší věci na práci než stahování Vocodex Sampler Packu, protože máte očividně času dost. V tomto případě tedy doufáme, že jste si užili to, co jsme tu pro vás na Apríl 2025 nachystali a utíkejte si konečně stáhnout sample pack.<br><br>Děkujeme ❤️</p>
+        <button class="download-final-btn">Konečně získat Vocodex Sampler Pack</button>
+    </div>
+    <div id="what-payment">
+        <h2>No platba za sample pack přece, ne?</h2>
+        <p>Ne dobře, teď vážně. <b>Tato platba</b> nic neznamená, <b>není reálná</b>, neodesílá žádné zadané hodnoty a stačí tam napsat náhodné znaky, aby byla platba potvrzena. <b>Nezadávejte tedy žádné reálné údaje</b>, není to potřeba.</p>
+        <button class="okay-to-payment">Dobře, rozumím</button>
+    </div>
+
+    <script src="/js/download.js"></script>
+    <script>
+        localStorage.setItem("item11", "true");
+    </script>
+
+    <div id="notificationPopup"></div>
+    <script src="js/browserCheck.js"></script>
+    <script src="js/hub-button.js"></script>
+</body>
+</html>

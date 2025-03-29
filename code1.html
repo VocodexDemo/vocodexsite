@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Vocoder mimo město</title>
+    <link rel="stylesheet" href="styles/code1.css">
+    <link rel="stylesheet" href="styles/browserCheck.css">
+    <link rel="icon" href="icons/blud.ico" type="image/x-icon">
+</head>
+<body>
+    <script src="js/clickToLoad.js"></script>
+
+    <audio id="background-audio" src="sounds/amb.ogg" loop></audio>
+    <img src="img/blud.png" alt="Avatar" class="avatar" onclick="playAudio(); avatarSpeak();" draggable="false">
+    
+    <div class="door" onclick="goToDoors(this)">
+        <img class="door" src="img/open-door.webp" alt="Door 1" draggable="false">
+    </div> 
+
+    <div id="speech-bubble" class="speech-bubble"></div> 
+
+    <!-- možnosti zobrazené po prvních volbách -->
+    <div id="options" style="display: none; position: absolute; bottom: 50px; left: 0; width: 100%;">
+        <button class="option-button" onclick="selectOption('avatar2.ogg', 'Co jsou všechny dveře?', this)">Co jsou všechny dveře?</button>
+        <button class="option-button" onclick="selectOption('avatar3.ogg', 'Dáš mi kód?', this)">Dáš mi kód?</button>
+    </div>
+
+    <!-- možnosti zobrazené po výběru předchozích dvou možností -->
+    <div id="pre-avatar4-options" style="display: none; position: absolute; bottom: 50px; left: 0; width: 100%;">
+        <button class="option-button" onclick="selectPreAvatar4Option('avatar5.ogg', 'Co máš v plánu dělat?')">Co máš v plánu dělat?</button>
+        <button class="option-button" onclick="selectPreAvatar4Option('avatar6.ogg', 'Ty znáš vocodex sampler pack?')">Ty znáš vocodex sampler pack?</button>
+    </div>
+
+    <script src="js/page1.js"></script>
+    <script>
+        localStorage.setItem("item5", "true");
+    </script>
+
+    <div id="notificationPopup"></div>
+    <script src="js/browserCheck.js"></script>
+    <script src="js/hub-button.js"></script>
+</body>
+</html>

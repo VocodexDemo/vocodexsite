@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Video kód</title>
+    <link rel="stylesheet" href="styles/code3.css">
+    <link rel="stylesheet" href="styles/browserCheck.css">
+    <link rel="icon" href="icons/play.ico" type="image/x-icon">
+</head>
+<body>
+    <script src="js/clickToLoad.js"></script>
+    
+    <div id="blackScreen"></div>
+    <div id="cinema" style="background-image: url('img/gogoman.webp');">
+        <video id="video" src="img/video.webm" disablePictureInPicture></video>
+    </div>
+    <script src="js/page3.js"></script>
+    <div class="door" onclick="goToDoors(this)">
+        <img class="door" src="img/open-door.webp" alt="Door 1" draggable="false" void="0">
+    </div> 
+    <script>
+        localStorage.setItem("item7", "true");
+    </script>
+
+    <div id="notificationPopup"></div>
+    <script src="js/browserCheck.js"></script>
+    <script src="js/hub-button.js"></script>
+</body>
+</html>

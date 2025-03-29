@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="robots" content="noindex, nofollow">
+    <title>Terminal</title>
+    <link rel="stylesheet" href="styles/terminal.css">
+    <link rel="stylesheet" href="styles/browserCheck.css">
+    <link rel="icon" href="icons/terminal.ico" type="image/x-icon">
+</head>
+
+<body>
+    <div id="output">
+        Voxindows [Alpha Version 0.001]<br>
+        (c) Vocodex. Všechna práva vyhrazena.<br><br>
+    </div>
+
+    <div id="input-line">
+        <span id="prompt">V:\Users\V0C0DEXCZ2009&gt;</span>
+        <input type="text" id="command-input" autofocus>
+    </div>
+
+    <div id="clippy-container" class="hidden">
+        <img id="clippy-sprite" src="img/sprite1.webp" alt="Clippy" draggable="false">
+        <div id="clippy-bubble">
+            <p id="clippy-text"></p>
+            <br>
+            <span id="clippy-next">➔</span>
+        </div>
+    </div>
+
+    <audio id="clip-sound" src="sounds/clip.ogg"></audio>
+    <audio id="clip2-sound" src="sounds/clip2.ogg"></audio>
+
+    <script src="js/terminal.js"></script>
+    <script>
+        localStorage.setItem("item9", "true");
+    </script>
+    
+    <div id="notificationPopup"></div>
+    <script src="js/browserCheck.js"></script>
+    <script src="js/hub-button.js"></script>
+</body>
+</html>

@@ -259,8 +259,9 @@ document.addEventListener("DOMContentLoaded", function() {
 function gameCompleted(){
     let completed = true;
     for (let i = 3; i <= 17; i++){
-        if (localStorage.getItem(`item${i}`) != "true") completed = false;
+        if (i != 8 || i != 9 || localStorage.getItem(`item${i}`) != "true") completed = false;
     }
+    if (localStorage.getItem("skladUnlocked") != "true") completed = false;
     console.log("Game completed: " + completed);
     return completed;
 }

@@ -30,11 +30,12 @@ function goToDoors(element) {
     }
 }
 
+const audio = new Audio('sounds/avatar1.ogg');
+audio.load();
 function avatarSpeak() {
     if (hasSpoken) return;
     hasSpoken = true;
     if (completed != "true") {
-        const audio = new Audio('sounds/avatar1.ogg');
         audio.play().catch(function (error) {
             console.log('Audio playback failed: ', error);
         });
@@ -116,6 +117,7 @@ function selectOption(option) {
     }
 
     const audio = new Audio(audioFile);
+    audio.load();
     audio.play().catch(function (error) {
         console.log('Audio playback failed: ', error);
     });

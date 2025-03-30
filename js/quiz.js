@@ -58,8 +58,8 @@ const questions = [
         answers: [
             { text: "Chce prosadit to, že čas je irelevantní", correct: false },
             { text: "Říká to, že nejlepší věc je změna času", correct: false },
-            { text: "Vadí mu, že se měni čas z letního na zimní", correct: true },
-            { text: "Vadí mu, že se mění čas ze zimního na letní", correct: false }
+            { text: "Vadí mu, že se měni čas z letního na zimní", correct: false },
+            { text: "Vadí mu, že se mění čas ze zimního na letní", correct: true }
         ]
     },
     {

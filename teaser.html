@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta property="og:title" content="Čas se krátí...">
+    <meta property="og:description" content="Vocodex demo">
+    <meta property="og:image" content="https://vocodexdemo.site/img/eyes.png">
+    <meta property="og:url" content="https://vocodexdemo.site">
+    <meta property="og:type" content="website"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>--</title>
+    <link rel="icon" href="icons/countdown.ico?v=2" type="image/x-icon">
+    <style>
+        body, html{
+            margin: 0;
+            padding: 0;
+            overflow: hidden;
+            user-select: none;
+            -webkit-user-select: none;
+        }
+        .the-link {
+            display: none;
+        }
+        p{
+            font-family:'Lucida Sans';
+            position: absolute;
+            text-align: center;
+            bottom: 5px;
+            color: #fff;
+            background-color: #000a;
+            padding: 10px 20px;
+            margin-left: 20px;
+        }
+        .container { position: relative; height: 100vh; width: 100vw; overflow: hidden; perspective: 600px; transform-style: preserve-3d; }
+        .responsive-image { width: 100%; height: 100%; object-fit: cover; object-position: center 50%; filter: saturate(60%) contrast(110%); }
+        #p1{
+            position: absolute;
+            top: calc(50% - 10vw);
+            left: calc(50% + 6.2vw);
+            width: 12vw;
+            height: auto;
+            cursor: pointer;
+            transform: rotateY(24deg) rotateZ(-3deg);
+            filter: sepia(50%) saturate(90%) brightness(70%) contrast(110%);
+            transition: 0.3s steps(4), filter 0.3s ease;
+        }
+        #p1:hover{
+            top: 50%;
+            left: calc(50% - (min(75vh, 90vw) / 2));
+            width: min(75vh, 90vw);
+            transform: rotateY(0deg) rotateZ(0deg) translate(0%, -50%);
+            filter: sepia(0%) saturate(110%) brightness(100%) contrast(100%);
+            z-index: 998;
+        }
+        #p2{
+            position: absolute;
+            top: calc(50% - 14vw);
+            left: calc(50% - 0.8vw);
+            width: 9vw;
+            height: auto;
+            cursor: pointer;
+            transform: rotateY(-48deg) rotateZ(4deg);
+            filter: sepia(50%) saturate(90%) brightness(52%) contrast(110%);
+            transition: 0.3s steps(4), filter 0.3s ease;
+        }
+        #p2:hover{
+            top: 50%;
+            left: calc(50% - (min(65vh, 90vw) / 2));
+            width: min(65vh, 90vw);
+            transform: rotateY(0deg) rotateZ(0deg) translate(0%, -50%);
+            filter: sepia(0%) saturate(110%) brightness(100%) contrast(100%);
+            z-index: 998;
+        }
+        #p3:hover{
+            top: 50%;
+            left: calc(50% - (min(65vh, 90vw) / 2));
+            width: min(65vh, 90vw);
+            transform: rotateY(0deg) rotateZ(0deg) translate(0%, -50%);
+            filter: sepia(0%) saturate(110%) brightness(100%) contrast(100%);
+            z-index: 998;
+        }
+        .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('img/grain.gif') center center repeat; background-size: 30%; pointer-events: none; opacity: 0.3; image-rendering: pixelated; mix-blend-mode: overlay; z-index: 999; }
+        #fade-inout {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 1;
+            pointer-events: auto;
+            transition: opacity 1s ease;
+            z-index: 1000;
+            display: flex;
+            justify-content: right;
+            align-items: end;
+        }
+        h2{
+            margin: 40px 60px;
+            color: #fff;
+            font-size: 24px;
+            font-family:'Trebuchet MS', 'Lucida Sans Unicode', 'Lucida Grande', 'Lucida Sans', Arial, sans-serif;
+        }
+        @media (max-width: 640px) {
+            p{
+                position: absolute;
+                text-align: center;
+                width: 100%;
+                padding: 10px 0;
+                margin-left: 0;
+            }
+            #fade-inout {
+                justify-content: center;
+            }
+            h2{
+                margin: 20px 0;
+                text-align: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="fade-inout"><h2 id="introText">NAČÍTÁNÍ...</h2></div>
+    <audio id="background-audio" src="sounds/street.ogg" loop></audio>
+    <div class="container">
+        <img id="bgimg" src="" class="responsive-image" alt="img" draggable="false">
+        <img id="p2" src="img/teaser2.webp" alt="paper" draggable="false">
+        <img id="p1" src="img/teaser1.webp" alt="paper" draggable="false">
+    </div>
+    <p id="countdown"></p>
+    <div class="overlay"></div>
+    <a href="18-12-2024.html" class="the-link">..</a>
+
+    <script>
+        document.getElementById("background-audio").volume = 0.2;
+        var countdown = "";
+        const countdownText = document.getElementById("countdown");
+        function timeUntil() {
+            let countdown;
+            let diff = new Date("2025-04-01T18:00:00") - new Date();
+            if (diff < 0){
+                countdown = "Čas nadešel.";
+            } else {
+                let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                if (days > 0) hours++;
+                if (hours >= 24) { days++; hours = 0; };
+                countdown = `${days} d, ${hours} h, ${minutes} m, ${seconds} s`;
+            }
+            document.title = countdown;
+            countdownText.innerHTML = countdown;
+        }
+        setInterval(timeUntil, 1000);
+
+        let backgroundImage = document.getElementById("bgimg");
+        setInterval(() => {
+            if (window.innerWidth / window.innerHeight < 9/16) backgroundImage.src = "img/teaserT.webp";
+            else backgroundImage.src = "img/teaser.webp";
+        }, 500);
+
+        const paperAudio = new Audio("sounds/letter.ogg");
+        paperAudio.volume = 0.6;
+        document.getElementById("p1").addEventListener('mouseover', function() { paperAudio.currentTime = 0; paperAudio.play(); });
+        document.getElementById("p2").addEventListener('mouseover', function() { paperAudio.currentTime = 0; paperAudio.play(); });
+
+        let loaded = false;
+        function loadWeb(){
+            if (loaded) return;
+            document.body.style.cursor = "auto";
+            const fadeOverlay = document.getElementById('fade-inout');
+            fadeOverlay.style.opacity = '0';
+            setTimeout(() => {
+                fadeOverlay.style.pointerEvents = 'none';
+            }, 1000);
+            document.getElementById("background-audio").play();
+            loaded = true;
+        }
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                document.getElementById('introText').innerHTML = "KLIKNĚTE PRO POKRAČOVÁNÍ!";
+                document.body.style.cursor = "pointer";
+                document.addEventListener("click", () => { loadWeb() });
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

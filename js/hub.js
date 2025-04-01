@@ -94,6 +94,7 @@ for (let i = 3; i <= 17; i++){
 }
 if (localStorage.getItem("skladUnlocked") != "true") completed = false;
 if (completed) activeItems.pop();
+console.log(completed);
 
 // Add items to the map
 mapItems.forEach(item => {

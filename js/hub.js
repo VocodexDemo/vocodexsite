@@ -89,9 +89,11 @@ for (let i = activeItems.length - 2; i >= 0; i--) {
 }
 // ai nohavica is visible when completed
 let completed = true;
+console.log(completed);
 for (let i = 3; i <= 17; i++){
     if (i != 8 || i != 9 || localStorage.getItem(`item${i}`) != "true") completed = false;
 }
+console.log(completed);
 if (localStorage.getItem("skladUnlocked") != "true") completed = false;
 if (completed) activeItems.pop();
 console.log(completed);

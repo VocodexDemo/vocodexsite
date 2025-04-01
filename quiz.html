@@ -70,18 +70,12 @@
             </div>
         </div>
     </div>
+    <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+    <script src="js/particles-config.js"></script>
     <script>
         function loadContent() {
             document.getElementById('intro-screen').style.display = 'none';
             document.getElementById('content').style.display = '';
-
-            let particlesScript = document.createElement('script');
-            particlesScript.src = "https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js";
-            document.body.appendChild(particlesScript);
-
-            let particlesConfigScript = document.createElement('script');
-            particlesConfigScript.src = "js/particles-config.js";
-            document.body.appendChild(particlesConfigScript);
 
             let quizScript = document.createElement('script');
             quizScript.src = "js/quiz.js";

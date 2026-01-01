@@ -1,0 +1,198 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta property="og:title" content="Čas se krátí...">
+    <meta property="og:description" content="Vocodex demo">
+    <meta property="og:image" content="https://vocodexdemo.site/img/eyes.png">
+    <meta property="og:url" content="https://vocodexdemo.site">
+    <meta property="og:type" content="website"> 
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <meta name="robots" content="noindex, nofollow">
+    <title>???</title>
+    <link rel="icon" href="icons/countdown.ico?v=2" type="image/x-icon">
+
+    <style>
+        body, html {
+            margin: 0;
+            padding: 0;
+            height: 100%;
+            width: 100%;
+            overflow: hidden;
+            user-select: none;
+            -webkit-user-select: none;
+            font-family: Arial, sans-serif;
+        }
+        p{
+            font-family: 'Courier New', 'Consolas', 'Monaco', monospace;
+            position: absolute;
+            text-align: center;
+            font-size: 2vw;
+            width: 100%;
+            transform: translate(-50%, -50%);
+            color: #ffffffcc;
+            filter: blur(0.05vw);
+            text-shadow: 0 0 0.5vw #ffffffd0, 0 0 1.2vw #ffffffa1, 0 0 2vw #ffffff84, 0 0 2.5vw #ffffff5c, 0 0 3.2vw #97cee63f, 0 0 5vw #97cee617;
+            padding: 0;
+            margin: 0;
+        }
+        .container { position: relative; height: 100vh; width: 100vw; overflow: hidden; perspective: 600px; transform-style: preserve-3d; }
+        .responsive-image { width: 100%; height: 100%; object-fit: cover; object-position: center 50%; filter: saturate(80%) contrast(110%); }
+        .overlay { position: absolute; top: 0; left: 0; width: 100%; height: 100%; background: url('img/grain.gif') center center repeat; background-size: 30%; pointer-events: none; opacity: 0.3; image-rendering: pixelated; mix-blend-mode: overlay; z-index: 998; }
+        .tvoverlay { position: absolute; width: 18vw; height: 50vw; background: url('img/CRT-noise-overlay.gif') center center no-repeat; background-size: contain; pointer-events: none; opacity: 0.0; mix-blend-mode: screen; z-index: 997; transform: translate(-50%, -50%); }
+        .tvhitbox { position: absolute; width: 30vw; height: 22vw; background: transparent; cursor: pointer; transform: translate(-50%, -50%); z-index: 999; }
+        #fade-inout {
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            background-color: black;
+            opacity: 1;
+            pointer-events: auto;
+            transition: opacity 1s ease;
+            z-index: 1000;
+            display: flex;
+            justify-content: right;
+            align-items: end;
+        }
+        @media (max-width: 640px) {
+            #fade-inout {
+                justify-content: center;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div id="fade-inout"></div>
+    <div class="container">
+        <img id="bgimg" src="" class="responsive-image" alt="img" draggable="false">
+        <p id="countdown"></p>
+        <div class="tvoverlay"></div>
+        <div class="tvhitbox"></div>
+    </div>
+    <div class="overlay"></div>
+    <audio id="background-audio" src="sounds/teaser2026.ogg" loop></audio>
+    <audio id="glitch-sound" src="sounds/glitch.ogg"></audio>
+    <audio id="btn-sound" src="sounds/tvClick.ogg"></audio>
+    <script>
+        document.getElementById("background-audio").volume = 0.35;
+        const countdownText = document.getElementById("countdown");
+        function timeUntil() {
+            if (!tvon) return;
+            let countdown;
+            let diff = new Date("2026-04-01T00:00:00") - new Date();
+            if (diff < 0){
+                countdown = "Čas nadešel.";
+            } else {
+                let days = Math.floor(diff / (1000 * 60 * 60 * 24));
+                let hours = Math.floor((diff % (1000 * 60 * 60 * 24)) / (1000 * 60 * 60));
+                let minutes = Math.floor((diff % (1000 * 60 * 60)) / (1000 * 60));
+                let seconds = Math.floor((diff % (1000 * 60)) / 1000);
+                if (days > 0) hours++;
+                if (hours >= 24) { days++; hours = 0; };
+                
+                function tvarSlova(cislo, jednotne, mnozne2_4, mnozne5) {
+                    if (cislo === 1) return jednotne;
+                    if (cislo >= 2 && cislo <= 4) return mnozne2_4;
+                    return mnozne5;
+                }
+                let dnyText = tvarSlova(days, "DEN", "DNY", "DNÍ");
+                let hodinyText = tvarSlova(hours, "HODINA", "HODINY", "HODIN");
+                let minutyText = tvarSlova(minutes, "MINUTA", "MINUTY", "MINUT");
+                let sekundyText = tvarSlova(seconds, "SEKUNDA", "SEKUNDY", "SEKUND");
+                countdown = `${days} ${dnyText}<br>${hours} ${hodinyText}<br>${minutes} ${minutyText}<br>${seconds} ${sekundyText}`;
+            }
+            countdownText.innerHTML = countdown;
+        }
+        setInterval(timeUntil, 1000);
+
+        let backgroundImage = document.getElementById("bgimg");
+   
+        function positionTextAndButton() {
+            const img = backgroundImage;
+            const container = document.querySelector('.container');
+            const text = countdownText;
+            const tvOverlay = document.querySelector('.tvoverlay');
+            const tvHitbox = document.querySelector('.tvhitbox');
+          
+            if (!img.naturalWidth || !img.naturalHeight) return;
+            const imgAspect = img.naturalWidth / img.naturalHeight;
+            const containerAspect = container.clientWidth / container.clientHeight;
+            
+            let visibleWidth, visibleHeight, offsetX, offsetY;
+            
+            if (containerAspect > imgAspect) {
+                visibleWidth = container.clientWidth;
+                visibleHeight = container.clientWidth / imgAspect;
+                offsetX = 0;
+                offsetY = (container.clientHeight - visibleHeight) / 2;
+            } else {
+                visibleHeight = container.clientHeight;
+                visibleWidth = container.clientHeight * imgAspect;
+                offsetX = (container.clientWidth - visibleWidth) / 2;
+                offsetY = 0;
+            }
+
+            const tvOverlayX = offsetX + (visibleWidth * 0.466);
+            const tvOverlayY = offsetY + (visibleHeight * 0.473);
+            tvOverlay.style.left = tvOverlayX + 'px';
+            tvOverlay.style.top = tvOverlayY + 'px';
+            const tvHitboxX = offsetX + (visibleWidth * 0.495);
+            const tvHitboxY = offsetY + (visibleHeight * 0.48);
+            tvHitbox.style.left = tvHitboxX + 'px';
+            tvHitbox.style.top = tvHitboxY + 'px';
+
+            offsetX += (Math.random() - 0.5) * 3.0;
+            offsetY += (Math.random() - 0.5) * 3.0;
+
+            const textX = offsetX + (visibleWidth * 0.459);
+            const textY = offsetY + (visibleHeight * 0.475);
+            
+            text.style.left = textX + 'px';
+            text.style.top = textY + 'px';
+        }
+        
+        setInterval(() => {
+            positionTextAndButton();
+        }, 500);
+        
+        window.addEventListener('resize', positionTextAndButton);
+        backgroundImage.addEventListener('load', positionTextAndButton);
+
+        let tvon = false;
+        let tvClicked = false;
+        function turnOnTv(){
+            if (tvClicked) return;
+            document.getElementById("btn-sound").volume = 0.4;
+            document.getElementById("btn-sound").play();
+            document.querySelector('.tvhitbox').style.cursor = "default";
+            tvClicked = true;
+            setTimeout(() => {
+                if (tvon) return;
+                backgroundImage.src = "img/teaser2026_2.webp";
+                document.body.style.cursor = "auto";
+                document.getElementById("background-audio").play();
+                document.getElementById("glitch-sound").volume = 0.5;
+                document.getElementById("glitch-sound").play();
+                document.querySelector('.tvoverlay').style.opacity = "0.6";
+                tvon = true;
+                timeUntil();
+            }, 1000);
+        }
+
+        window.addEventListener('load', () => {
+            setTimeout(() => {
+                backgroundImage.src = "img/teaser2026_1.webp";
+                const fadeOverlay = document.getElementById('fade-inout');
+                fadeOverlay.style.opacity = '0';
+                setTimeout(() => {
+                    fadeOverlay.style.pointerEvents = 'none';
+                }, 1000);
+                document.querySelector('.tvhitbox').addEventListener("click", () => { turnOnTv() });
+            }, 1000);
+        });
+    </script>
+</body>
+</html>

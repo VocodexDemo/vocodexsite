@@ -246,3 +246,9 @@ button.addEventListener("click", () => {
         popup.style.display = "none";
     }, 2000);
 });
+
+
+// Telka
+document.getElementById('tv-image').addEventListener('click', function () {
+    window.location.href = '2026.html';
+});

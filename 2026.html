@@ -77,7 +77,6 @@
     <audio id="glitch-sound" src="sounds/glitch.ogg"></audio>
     <audio id="btn-sound" src="sounds/tvClick.ogg"></audio>
     <script>
-        document.getElementById("background-audio").volume = 0.35;
         const countdownText = document.getElementById("countdown");
         function timeUntil() {
             if (!tvon) return;
@@ -173,6 +172,7 @@
                 if (tvon) return;
                 backgroundImage.src = "img/teaser2026_2.webp";
                 document.body.style.cursor = "auto";
+                document.getElementById("background-audio").volume = 0.35;
                 document.getElementById("background-audio").play();
                 document.getElementById("glitch-sound").volume = 0.5;
                 document.getElementById("glitch-sound").play();
